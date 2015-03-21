@@ -20,7 +20,7 @@ func (d *Dummy) MustGetMessageTypes() []townsita.MessageType {
 	}
 }
 
-func MustGetMessageSubTypes(messageType int) []townsita.MessageType {
+func (d *Dummy) MustGetMessageSubTypes(messageType int) []townsita.MessageType {
 	return []townsita.MessageType{
 		townsita.MessageType{"1", "Message Type 1"},
 		townsita.MessageType{"2", "Message Type 1"},
