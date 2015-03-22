@@ -30,3 +30,7 @@ func (d *Dummy) MustGetMessageSubTypes(id string) []*townsita.MessageType {
 func (d *Dummy) GetMessageTypeById(id string) *townsita.MessageType {
 	return &townsita.MessageType{"1", "Message Type 1"}
 }
+
+func (d *Dummy) SaveMessage(message *townsita.Message, user *townsita.User) (string, error) {
+	return "1", nil
+}
