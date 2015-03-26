@@ -2,6 +2,7 @@ package dummy
 
 import (
 	"github.com/Townsita/townsita"
+	"time"
 )
 
 type Dummy struct{}
@@ -15,22 +16,45 @@ func (d *Dummy) Init() {
 
 func (d *Dummy) MustGetMessageTypes() []*townsita.MessageType {
 	return []*townsita.MessageType{
-		&townsita.MessageType{"1", "Message Type 1"},
-		&townsita.MessageType{"2", "Message Type 2"},
+		&townsita.MessageType{"type1", "Message Type 1"},
+		&townsita.MessageType{"type2", "Message Type 2"},
 	}
 }
 
 func (d *Dummy) MustGetMessageSubTypes(id string) []*townsita.MessageType {
 	return []*townsita.MessageType{
-		&townsita.MessageType{"1", "Message Type 1"},
-		&townsita.MessageType{"2", "Message Type 2"},
+		&townsita.MessageType{"type1", "Message Type 1"},
+		&townsita.MessageType{"type2", "Message Type 2"},
 	}
 }
 
 func (d *Dummy) GetMessageTypeById(id string) *townsita.MessageType {
-	return &townsita.MessageType{"1", "Message Type 1"}
+	return &townsita.MessageType{"type1", "Message Type 1"}
 }
 
 func (d *Dummy) SaveMessage(message *townsita.Message, user *townsita.User) (string, error) {
-	return "1", nil
+	return "message1", nil
+}
+
+func (d *Dummy) GetMessageById(id string) (*townsita.Message, error) {
+	return &townsita.Message{
+		ID:     "message1",
+		UserID: "user1",
+		TypeID: "type1",
+
+		Readers:    100,
+		Completed:  30,
+		TargetHash: "XoXoXo",
+		Latitude:   59.35,
+		Longitude:  17.9167,
+		Radius:     20,
+
+		Headline: "Message Headline",
+		Body:     "Message Body",
+		Photo:    "https://i.imgur.com/u5vVrjT.gif",
+
+		Status:    townsita.MessageDraft,
+		CreatedAd: time.Now(),
+		UpdatedAd: time.Now(),
+	}, nil
 }
