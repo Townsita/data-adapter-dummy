@@ -58,3 +58,7 @@ func (d *Dummy) GetMessageById(id string) (*townsita.Message, error) {
 		UpdatedAd: time.Now(),
 	}, nil
 }
+
+func (d *Dummy) LoginUser(*townsita.User) (string, error) {
+	return "user1", nil
+}
