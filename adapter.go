@@ -62,3 +62,101 @@ func (d *Dummy) GetMessageById(id string) (*townsita.Message, error) {
 func (d *Dummy) LoginUser(*townsita.User) (string, error) {
 	return "user1", nil
 }
+
+func (d *Dummy) RegisterUser(*townsita.User) (string, error) {
+	return "user1", nil
+}
+
+func (d *Dummy) LoadUserByID(userID string) (*townsita.User, error) {
+	return &townsita.User{"user1"}, nil
+}
+
+func (d *Dummy) GetOwnMessages(userID string, limit, offset int) []*townsita.Message {
+	return []*townsita.Message{
+		&townsita.Message{
+			ID:     "message1",
+			UserID: "user1",
+			TypeID: "type1",
+
+			Readers:    100,
+			Completed:  30,
+			TargetHash: "XoXoXo",
+			Latitude:   59.35,
+			Longitude:  17.9167,
+			Radius:     20,
+
+			Headline: "Message Headline",
+			Body:     "Message Body",
+			Photo:    "https://i.imgur.com/u5vVrjT.gif",
+
+			Status:    townsita.MessageDraft,
+			CreatedAd: time.Now(),
+			UpdatedAd: time.Now(),
+		},
+		&townsita.Message{
+			ID:     "message2",
+			UserID: "user1",
+			TypeID: "type2",
+
+			Readers:    100,
+			Completed:  30,
+			TargetHash: "XoXoXo",
+			Latitude:   59.35,
+			Longitude:  17.9167,
+			Radius:     20,
+
+			Headline: "Message Headline",
+			Body:     "Message Body",
+			Photo:    "https://i.imgur.com/u5vVrjT.gif",
+
+			Status:    townsita.MessageDraft,
+			CreatedAd: time.Now(),
+			UpdatedAd: time.Now(),
+		},
+	}
+}
+
+func (d *Dummy) GetReceivedMessages(userID string, limit, offset int) []*townsita.Message {
+	return []*townsita.Message{
+		&townsita.Message{
+			ID:     "message1",
+			UserID: "user1",
+			TypeID: "type1",
+
+			Readers:    100,
+			Completed:  30,
+			TargetHash: "XoXoXo",
+			Latitude:   59.35,
+			Longitude:  17.9167,
+			Radius:     20,
+
+			Headline: "Message Headline",
+			Body:     "Message Body",
+			Photo:    "https://i.imgur.com/u5vVrjT.gif",
+
+			Status:    townsita.MessageDraft,
+			CreatedAd: time.Now(),
+			UpdatedAd: time.Now(),
+		},
+		&townsita.Message{
+			ID:     "message1",
+			UserID: "user1",
+			TypeID: "type1",
+
+			Readers:    100,
+			Completed:  30,
+			TargetHash: "XoXoXo",
+			Latitude:   59.35,
+			Longitude:  17.9167,
+			Radius:     20,
+
+			Headline: "Message Headline",
+			Body:     "Message Body",
+			Photo:    "https://i.imgur.com/u5vVrjT.gif",
+
+			Status:    townsita.MessageDraft,
+			CreatedAd: time.Now(),
+			UpdatedAd: time.Now(),
+		},
+	}
+}
